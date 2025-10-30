@@ -116,7 +116,7 @@ const Index = () => {
             Купите привилегии и получите преимущества на сервере
           </p>
           
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
             {[
               {
                 name: 'VIP',
@@ -157,6 +157,20 @@ const Index = () => {
                   'Персональная поддержка'
                 ],
                 icon: 'Gem',
+                badge: false
+              },
+              {
+                name: 'TITAN',
+                price: '999',
+                features: [
+                  'Все привилегии LEGEND',
+                  'Команда /feed',
+                  'Команда /heal',
+                  'Приоритетная поддержка 24/7',
+                  'Эксклюзивные эффекты',
+                  'Особый статус в чате'
+                ],
+                icon: 'Zap',
                 badge: false
               }
             ].map((item, idx) => (
