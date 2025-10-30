@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -6,44 +6,44 @@
 
 @layer base {
   :root {
-    --background: 140 60% 8%;
-    --foreground: 120 20% 95%;
+    --background: 0 0% 6%;
+    --foreground: 0 0% 95%;
 
-    --card: 140 50% 12%;
-    --card-foreground: 120 20% 95%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 140 50% 12%;
-    --popover-foreground: 120 20% 95%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 142 76% 36%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 35 92% 66%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 45 93% 47%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 0 0% 15%;
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 140 30% 20%;
-    --muted-foreground: 120 10% 70%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
 
-    --accent: 142 76% 36%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 35 92% 66%;
+    --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 140 30% 25%;
-    --input: 140 30% 25%;
-    --ring: 142 76% 36%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 35 92% 66%;
 
-    --radius: 0.125rem;
+    --radius: 0.5rem;
 
-    --sidebar-background: 140 50% 12%;
-    --sidebar-foreground: 120 20% 95%;
-    --sidebar-primary: 142 76% 36%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 140 30% 20%;
-    --sidebar-accent-foreground: 120 20% 95%;
-    --sidebar-border: 140 30% 25%;
-    --sidebar-ring: 142 76% 36%;
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 35 92% 66%;
+    --sidebar-primary-foreground: 0 0% 0%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: 35 92% 66%;
   }
 }
 
@@ -54,6 +54,6 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: "Rubik", sans-serif;
+    font-family: "Golos Text", sans-serif;
   }
 }
