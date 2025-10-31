@@ -147,16 +147,25 @@ const Index = () => {
     return matchesCategory && matchesSearch;
   });
 
-  const downloadImage = (imageUrl: string, name: string) => {
-    const link = document.createElement('a');
-    link.href = imageUrl;
-    link.download = `${name}.jpg`;
-    link.click();
-    
-    toast({
-      title: 'Скачивание начато!',
-      description: name,
-    });
+  const copyImage = async (imageUrl: string, name: string) => {
+    try {
+      const response = await fetch(imageUrl);
+      const blob = await response.blob();
+      await navigator.clipboard.write([
+        new ClipboardItem({ [blob.type]: blob })
+      ]);
+      
+      toast({
+        title: 'Скопировано!',
+        description: `${name} в буфере обмена`,
+      });
+    } catch (error) {
+      toast({
+        title: 'Ошибка',
+        description: 'Не удалось скопировать изображение',
+        variant: 'destructive',
+      });
+    }
   };
 
   return (
@@ -266,12 +275,12 @@ const Index = () => {
                     </div>
                     
                     <Button 
-                      onClick={() => downloadImage(item.image, item.name)}
+                      onClick={() => copyImage(item.image, item.name)}
                       className="w-full gap-2 bg-primary hover:bg-primary/90 font-semibold"
                       size="lg"
                     >
-                      <Icon name="Download" size={18} />
-                      Скачать
+                      <Icon name="Copy" size={18} />
+                      Скопировать
                     </Button>
                   </div>
                 </CardContent>
@@ -283,11 +292,11 @@ const Index = () => {
         <div className="mt-20 grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
           <Card className="bg-gradient-to-br from-emerald-50 to-green-50 dark:from-emerald-950 dark:to-green-950 border-2">
             <CardContent className="p-8 text-center">
-              <Icon name="Download" className="mx-auto mb-4 text-primary" size={48} />
-              <h3 className="text-2xl font-bold mb-3">Как скачать?</h3>
+              <Icon name="Copy" className="mx-auto mb-4 text-primary" size={48} />
+              <h3 className="text-2xl font-bold mb-3">Как скопировать?</h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Просто нажми на кнопку "Скачать" под нужным предметом. 
-                Изображение сохранится на твоё устройство!
+                Просто нажми на кнопку "Скопировать" под нужным предметом. 
+                Изображение скопируется в буфер обмена!
               </p>
             </CardContent>
           </Card>
