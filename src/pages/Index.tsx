@@ -12,72 +12,134 @@ const Index = () => {
   const { toast } = useToast();
 
   const emojiCategories = [
-    { id: 'all', name: 'Все руды', icon: 'Grid3x3' },
-    { id: 'common', name: 'Обычные', icon: 'Box' },
-    { id: 'rare', name: 'Редкие', icon: 'Gem' },
-    { id: 'precious', name: 'Драгоценные', icon: 'Diamond' },
+    { id: 'all', name: 'Всё', icon: 'Grid3x3' },
+    { id: 'ores', name: 'Руды', icon: 'Box' },
+    { id: 'weapons', name: 'Оружие', icon: 'Sword' },
   ];
 
-  const minecraftOres = [
+  const minecraftItems = [
     { 
       image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/9705ac3d-708b-4b6e-8a72-db88778a9be3.jpg',
       name: 'Угольная руда',
-      category: 'common',
+      category: 'ores',
       keywords: 'уголь coal черный топливо',
       description: 'Самая распространенная руда'
     },
     { 
       image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/a250abe8-7711-4b9c-822e-8a2a7623906e.jpg',
       name: 'Железная руда',
-      category: 'common',
+      category: 'ores',
       keywords: 'железо iron оранжевый инструменты',
       description: 'Основа для инструментов'
     },
     { 
       image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/5cf34ad5-d1ad-47c6-baf1-3aea62ec9517.jpg',
       name: 'Медная руда',
-      category: 'common',
+      category: 'ores',
       keywords: 'медь copper зеленый бирюзовый',
       description: 'Для электрики и декора'
     },
     { 
       image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/ab5ad037-96bd-4259-9923-c0b267ad48ba.jpg',
       name: 'Красная руда',
-      category: 'rare',
+      category: 'ores',
       keywords: 'редстоун redstone красный механизмы',
       description: 'Для механизмов и схем'
     },
     { 
       image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/c84f875f-e2fb-4bed-a61e-6aac9240b4f9.jpg',
       name: 'Лазуритовая руда',
-      category: 'rare',
+      category: 'ores',
       keywords: 'лазурит lapis синий краситель',
       description: 'Для зачарований и красителей'
     },
     { 
       image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/200cc901-0c56-4e08-8021-c259c543e7ae.jpg',
       name: 'Золотая руда',
-      category: 'rare',
+      category: 'ores',
       keywords: 'золото gold желтый драгоценный',
       description: 'Быстрые, но хрупкие инструменты'
     },
     { 
       image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/f84db9e0-d0a7-43ea-ae20-1c72a99fc885.jpg',
       name: 'Алмазная руда',
-      category: 'precious',
+      category: 'ores',
       keywords: 'алмаз diamond голубой редкий',
       description: 'Лучшие инструменты и броня'
     },
     { 
       image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/e98c9c17-3d19-4fba-9815-c220825ed42c.jpg',
       name: 'Изумрудная руда',
-      category: 'precious',
+      category: 'ores',
       keywords: 'изумруд emerald зеленый торговля',
       description: 'Валюта для торговли'
     },
+    { 
+      image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/930cd7e1-b9d3-4c15-9f0c-ffaec1422514.jpg',
+      name: 'Древние обломки',
+      category: 'ores',
+      keywords: 'незерит netherite древний ад нижний мир',
+      description: 'Самая редкая руда из Ада'
+    },
+    { 
+      image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/29e1f8db-8d9b-4c46-923e-a75b8836eb6e.jpg',
+      name: 'Кварцевая руда',
+      category: 'ores',
+      keywords: 'кварц quartz белый ад нижний мир',
+      description: 'Руда из Нижнего мира'
+    },
+    { 
+      image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/ac3d7a98-4625-4bf1-b01a-098ecc1d2f6b.jpg',
+      name: 'Аметист',
+      category: 'ores',
+      keywords: 'аметист amethyst фиолетовый кристалл',
+      description: 'Фиолетовые кристаллы'
+    },
+    { 
+      image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/bc24a862-5fe7-4ee9-ad5c-77381d557383.jpg',
+      name: 'Алмазный меч',
+      category: 'weapons',
+      keywords: 'меч sword алмаз diamond оружие',
+      description: 'Мощный алмазный клинок'
+    },
+    { 
+      image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/c6262488-340d-4ca5-a7c9-c874b7cfc921.jpg',
+      name: 'Железный меч',
+      category: 'weapons',
+      keywords: 'меч sword железо iron оружие',
+      description: 'Надёжное железное оружие'
+    },
+    { 
+      image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/24f55db8-3bf6-428e-b2f2-f88dc099a68c.jpg',
+      name: 'Золотой меч',
+      category: 'weapons',
+      keywords: 'меч sword золото gold оружие',
+      description: 'Быстрый, но хрупкий'
+    },
+    { 
+      image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/8fb83bd0-cf50-45c3-8c39-232f60d1d465.jpg',
+      name: 'Незеритовый меч',
+      category: 'weapons',
+      keywords: 'меч sword незерит netherite оружие',
+      description: 'Самое мощное оружие'
+    },
+    { 
+      image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/1d523759-3b77-45f9-815d-b5ec4643ebd5.jpg',
+      name: 'Лук',
+      category: 'weapons',
+      keywords: 'лук bow стрела оружие дальнобойное',
+      description: 'Дальнобойное оружие'
+    },
+    { 
+      image: 'https://cdn.poehali.dev/projects/7a906b4d-ee26-4d3b-ac69-d26afa039750/files/33c1ce3c-863a-441f-8338-e7d828f78026.jpg',
+      name: 'Арбалет',
+      category: 'weapons',
+      keywords: 'арбалет crossbow стрела оружие',
+      description: 'Мощный арбалет'
+    },
   ];
 
-  const filteredOres = minecraftOres.filter(item => {
+  const filteredOres = minecraftItems.filter(item => {
     const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
     const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          item.keywords.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -122,7 +184,7 @@ const Index = () => {
           <div className="flex gap-3 justify-center flex-wrap">
             <Badge variant="secondary" className="text-base px-5 py-2">
               <Icon name="Image" size={16} className="mr-2" />
-              {minecraftOres.length} руд
+              {minecraftItems.length} предметов
             </Badge>
             <Badge variant="secondary" className="text-base px-5 py-2">
               <Icon name="Download" size={16} className="mr-2" />
@@ -140,7 +202,7 @@ const Index = () => {
             <Icon name="Search" className="absolute left-5 top-1/2 -translate-y-1/2 text-muted-foreground" size={22} />
             <Input
               type="text"
-              placeholder="Поиск руды... (алмаз, железо, редстоун)"
+              placeholder="Поиск... (алмаз, меч, лук, руда)"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="pl-14 pr-5 py-7 text-lg border-2 focus:border-primary rounded-xl shadow-sm"
@@ -166,9 +228,9 @@ const Index = () => {
         {filteredOres.length === 0 ? (
           <Card className="py-20 border-2">
             <CardContent className="text-center">
-              <span className="text-7xl mb-6 block">⛏️</span>
+              <span className="text-7xl mb-6 block">🔍</span>
               <h3 className="text-3xl font-bold text-muted-foreground mb-2">
-                Руда не найдена
+                Ничего не найдено
               </h3>
               <p className="text-muted-foreground text-lg">
                 Попробуй другой запрос или категорию
@@ -183,11 +245,12 @@ const Index = () => {
                 className="group hover:scale-105 transition-all border-2 hover:border-primary/60 hover:shadow-2xl overflow-hidden"
               >
                 <CardContent className="p-0">
-                  <div className="relative overflow-hidden bg-stone-200 dark:bg-stone-800">
+                  <div className="relative overflow-hidden bg-stone-200 dark:bg-stone-800 p-4">
                     <img 
                       src={item.image}
                       alt={item.name}
-                      className="w-full aspect-square object-cover group-hover:scale-110 transition-transform duration-300"
+                      className="w-full aspect-square object-contain image-rendering-pixelated group-hover:scale-110 transition-transform duration-300"
+                      style={{ imageRendering: 'pixelated' }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   </div>
@@ -223,8 +286,8 @@ const Index = () => {
               <Icon name="Download" className="mx-auto mb-4 text-primary" size={48} />
               <h3 className="text-2xl font-bold mb-3">Как скачать?</h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Просто нажми на кнопку "Скачать" под нужной рудой. 
-                Изображение сохранится на твоё устройство в высоком качестве!
+                Просто нажми на кнопку "Скачать" под нужным предметом. 
+                Изображение сохранится на твоё устройство!
               </p>
             </CardContent>
           </Card>
@@ -234,8 +297,8 @@ const Index = () => {
               <Icon name="Sparkles" className="mx-auto mb-4 text-primary" size={48} />
               <h3 className="text-2xl font-bold mb-3">Где использовать?</h3>
               <p className="text-muted-foreground text-base leading-relaxed">
-                Для аватарок, Discord серверов, YouTube превью, 
-                стримов или просто для коллекции! Все бесплатно 🎮
+                Аватарки, Discord сервера, YouTube превью, 
+                стримы, иконки или коллекция! Всё бесплатно 🎮
               </p>
             </CardContent>
           </Card>
@@ -244,7 +307,7 @@ const Index = () => {
         <footer className="mt-20 text-center">
           <div className="bg-card/50 backdrop-blur rounded-2xl p-8 border-2 max-w-3xl mx-auto">
             <h4 className="text-xl font-bold mb-3 text-foreground">
-              ⛏️ Minecraft Ores Collection
+              ⛏️ Minecraft Items Collection
             </h4>
             <p className="text-muted-foreground mb-2">
               Все изображения бесплатны для личного использования
